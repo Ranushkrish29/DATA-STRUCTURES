@@ -25,24 +25,24 @@ repeat the process :)
 //define a helper function to return the PIVIT-index of the first element in the  arr
 //which accepts three argu arr, start, end;
 
-function pivitfinder(arr,start,end){
-    function swap(i1,i2){
-        [arr[i1],arr[i2]]=[arr[i2],arr[i1]];
+function pivitfinder(arr, start, end) {
+    function swap(i1, i2) {
+        [arr[i1], arr[i2]] = [arr[i2], arr[i1]];
     }
     //let first element in arr/sub arr is pivit 
-    let pivit=arr[start];
+    let pivit = arr[start];
     //the pivit index 
-    let swapin =start;
+    let swapin = start;
     //loop the arr from start to end
-    for(let i=start+1;i<end+1;i++){
+    for (let i = start + 1; i < end + 1; i++) {
         //compare pivit and arr[i] if true increament the pivit index and swap the values of arr[swap index] with arr[i] 
-        if(pivit>arr[i]){
-            swapin++;            
-            swap(swapin,i);
-        }        
+        if (pivit > arr[i]) {
+            swapin++;
+            swap(swapin, i);
+        }
     }
     //swap the arr[start] with the arr[swapin]
-    swap(start,swapin);
+    swap(start, swapin);
     //return pivit index
     return swapin;
 }
@@ -50,20 +50,20 @@ function pivitfinder(arr,start,end){
 
 
 // //main Qick merge function accepts an arr
-function quick_sort(arr,left=0,right=arr.length-1){
+function quick_sort(arr, left = 0, right = arr.length - 1) {
     //only if left < right :: base case for the recursion
-    if(left<right){
+    if (left < right) {
         //return the index of the current pivit value 
-        let pivitindex= pivitfinder(arr,left,right);
+        let pivitindex = pivitfinder(arr, left, right);
         //recursion 
-            //left arr start from 0 and ends in pivitindex -1 
-            quick_sort(arr,left,pivitindex-1);
-            //left arr start from 0 and ends in pivitindex -1
-            quick_sort(arr,pivitindex+1,right);
-     }
-     //return 
-     return arr;
+        //left arr start from 0 and ends in pivitindex -1 
+        quick_sort(arr, left, pivitindex - 1);
+        //left arr start from 0 and ends in pivitindex -1
+        quick_sort(arr, pivitindex + 1, right);
+    }
+    //return 
+    return arr;
 }
 
 //output
-console.log(quick_sort([4,7,2,8,3,5,1]));
+console.log(quick_sort([4, 7, 2, 8, 3, 5, 1]));
