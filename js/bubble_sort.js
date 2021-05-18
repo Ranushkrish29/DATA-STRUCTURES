@@ -1,3 +1,5 @@
+//-----------------------------BUBBLE SORTING----------------------------
+
 function bubble_sort(arr1){
     //define a bool to make sure not sorting the already sorted array
     var endswap;

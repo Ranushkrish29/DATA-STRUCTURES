@@ -1,3 +1,6 @@
+
+//-----------------------SECTION SORTING-----------------------------------------
+
 function section_sort(arr){
     var lowval;
     //loop the arr from start to end

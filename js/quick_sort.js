@@ -8,7 +8,6 @@
  and find the correct spot for the current pivit in the arr   
  repeat the process for the all the elements
 
-
         [4,7,2,8,3,5,1]   pi->4    and   swapid = 0
         loop the arr from index 1
         [4,7,2,8,3,5,1]   arr[i] -> 7  ---- campare arr[i]<pi  -->nothing happens noe cuz arr[i] is larger then pi 

@@ -1,4 +1,5 @@
 // --------------------------------MERGE-SORTING-----------------------------------
+
 //define a helper funciton , which merges two sorted arr to a single sorted arr 
 function mergeTwoarr(arr1,arr2){
     //arr to return the result finaly
