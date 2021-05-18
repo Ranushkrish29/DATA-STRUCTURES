@@ -1,4 +1,4 @@
-//---------------------------------INSERTION SORTING-------------------------
+ //---------------------------------INSERTION SORTING-------------------------
 
 function insertion_sort(arr){
     //loops the arr from index 1 to end  

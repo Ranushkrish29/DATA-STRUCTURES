@@ -1,7 +1,8 @@
 //-------------------------------QUICK SORTING-------------------------
 
 /*this sorting takes a random number from the arr [in-this-case i always take the first element of arr , arr[0]] and set it as a pivit 
- loop through the  arr and swap the elements to left if element is less then pivit 
+ 
+loop through the  arr and swap the elements to left if element is less then pivit 
  (other words)
  comparing the current pivit element with the other elements in the arr through looping
  push the small elements to the left , increment the pivitindex by 1  and  greater elements to the right
