@@ -3,7 +3,7 @@
 /* 
 Radix sort -> the way this algo works is differnt from the other algo  [like merge ,bubble,insertion,quick ,section]
 cuz they works in the basic rule of camparing two elements [right >left or left < right] but in this sorting 
-we don't compare elements instead we use different method for sorting the arr and this only works for number
+we don't compare elements instead we use different method for sorting the arr and this only works with number
 
 [1590,22,2,345,65,78,5645,14,5456] ->unsorted arr
 
@@ -22,8 +22,8 @@ ex----> 356 number have three digit
            hunderd's  ten's    one's  
 
 
-assume we have 10 buckes starting /namethem from zero to nine
-order them by the one's digit to the bucket like
+assume we have 10 buckes starting  from zero to nine
+place them to the correct bucket  by the one's digit 
 
 ----------------------first digit [one's digit]
 
@@ -50,11 +50,11 @@ place them in the desired opsition  --->
 after placed them in desired position the bucket looks like this 
 then update the arr without changing the order of elements in  bucket 
 
-arr = [1590,14,22,2,345,65,5645,5456,78]
+arr = [ 1590 , 14 , 22 , 2 , 345 , 65 , 5645 , 5456 , 78 ]
 
 ----------------------now second digit [tens digit]
 
-order them by the ten's digit to the bucket like
+place them to the correct bucket  by the ten's digit 
 
     2    2    2   2    2    2      2      2    2  -------> 2s digit
 [ 1590 , 14 , 22 , 2, 345 , 65 , 5645 , 5456 , 78]
@@ -86,11 +86,11 @@ arr = [ 2 , 14 , 22 , 345 , 5645 , 5456 , 65 , 78 , 1590 ]
 
     repeate the process for max digit times ::::
         if max digit is 4 digit [1590]  repeate the process for four times 
-        (or) if max digit is 4 digit [150]  repeate the process for three times 
-        number of process depend upon the max digit 
+        (or) if max digit is 3 digit [150]  repeate the process for three times 
+        number of loops depend upon the max digit 
 
 
-in this case by end of 4th process we get the sorted arr
+in-this-case by end of 4th process we get the sorted arr
 [ 2 , 22 , 65 , 78 , 345 , 1590 , 5456 ]
 
 */
