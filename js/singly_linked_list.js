@@ -27,14 +27,14 @@ head is pointing to the first element and tail is the last element in the list
    this is how we track the last element
    
 */
-//create a class node to store the current value pointer to the next node
+//create a class node to store the current value and pointer to the next node
 class Node{
     constructor(val){
         this.val=val;
         this.next=null;
     }
 }
-//create a SinglyLinkedlist class which uses the node calss to do the operations 
+//create a SinglyLinkedlist class which uses the node class to do the operations 
 class SinglyLinkedlist{
     //at first the head ,tail ,length is set to zero // constructor get executed automaticaly when the class is inti 
     constructor(){
@@ -44,9 +44,9 @@ class SinglyLinkedlist{
     }
     //push method -add a new value to end 
     push(val){
-        //create a new node by node class and store the value
+        //create a new node by node class and store it
         let newnode= new Node(val)
-        //if there is node {otherwise EMPTY-list}
+        //if there is node { EMPTY-list}
         if(!this.head){
             //point the head to the newly created node
             this.head=newnode;
@@ -58,7 +58,7 @@ class SinglyLinkedlist{
                 head=23 and tail=23 // both are points to the same node
              */
         }
-        //if there is a node {otherwise  list have elements }
+        //if there is a node { list have elements }
         else{
             //set the tail.next points the newly created node 
             this.tail.next=newnode;
