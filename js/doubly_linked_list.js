@@ -241,7 +241,34 @@ traversal() {
         return list;
     }
 
+    //reverse method 
+    reverse(){
+        //swap the head and tail 
+        [this.head,this.tail]=[this.tail,this.head]
+        //store the current tail
+        let currentnode = this.tail;        
+            //        [ 0   , 1  ,   2 ]
+            //  null <- c ->  1
+            //    1  <- c -> null
+            //                                            1 <- 0 -> null
+            //        [ 0   , 1  ,   2 ]
+            //          0 <-  c  ->  2
+            //          2 <-  c  -> 0
+            //                                           2 <- 1 <-> 0 -> null
+            //        [ 0   , 1  ,   2 ]
+            //                1  <-  c  ->  null
+            //              null <-  c  -> 1
+            //                                          null <- 2 <-> 1 <-> 0 -> null
 
+        while(currentnode){
+            //swap the current node's  prev and next
+            [currentnode.prev, currentnode.next]=[currentnode.next, currentnode.prev]
+            //update the current node to current node's prev 
+            currentnode=currentnode.prev
+        }
+        //return the list
+        return this
+    }
 }
 
 //null <- 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 -> null 
@@ -256,13 +283,16 @@ list.push(4);
 list.push(5);
 list.push(6);
 list.push(7);
-list.pop();
-list.shift();
-list.unshift(0);
-list.get(0);
-list.set(0,"added");
-list.insert(1,12);
-list.remove(0);
-console.log(list.traversal())
+list.pop();//delete the last element {tail node}
+list.shift();//deleter the first element {head node}
+list.unshift(0);//add new value to the beginning {new head node}
+list.get(4);//get the value in nth[4th] index
+list.set(2, 31)//change the value of nth[4th] element to given value {31} 
+list.insert(5, 55);//insert new element in the nth[5th] place with the given value {55}
+list.remove(1);//remove the nth[1th] element from the list
+console.log(list.traversal());//traversal the list
+list.reverse();//reverse the list
+console.log(list.traversal());
 
-list
+
+//------------------------------------------the end of Doubly-Linked-List --------------------------------------
