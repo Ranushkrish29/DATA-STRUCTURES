@@ -274,6 +274,7 @@ list.set(2, 31)//change the value of nth[4th] element to given value {31}
 list.insert(5, 55);//insert new element in the nth[5th] place with the given value {55}
 list.remove(1);//remove the nth[1th] element from the list
 list.reverse();//reverse the list
+list.traversal();//traversal the list
 
 
 
