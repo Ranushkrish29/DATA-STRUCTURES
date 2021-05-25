@@ -1,4 +1,4 @@
-//-------------------------------------------- stack ---------------------------------
+//------------------------------------------QUEUE ---------------------------------
 
 
 /**
@@ -18,15 +18,15 @@ class Node{
         this.next=null;
     }
 }
-//main stack class
-class Stack {
+//main Queue class
+class Queue {
     //stores first ,last nodes and total length
     constructor(){
         this.first=null;
         this.last=null;
         this.length=0;
     }
-    //addtop method --- to add element in the end of the stack 
+    //addtop method --- to add element in the end of the Queue 
     addend(val){
         //create a new node with the given val
         let newnode = new Node(val);
@@ -42,13 +42,13 @@ class Stack {
         //return the increased length
         return ++this.length
     }
-    //remove  --- to remove the first added node/element from the stack
+    //remove  --- to remove the first added node/element from the Queue
     remove(){
         //store the current first node as the removenode
         let removenode=this.first
-        //if stack is empty then return null
+        //if Queue is empty then return null
         if(this.length===0)return null;
-        //if stack hve only one element/node then set both first and last as null
+        //if Queue hve only one element/node then set both first and last as null
         if(this.length===1){
             this.first=null;
             this.last=null;
@@ -63,21 +63,21 @@ class Stack {
     }
 }
 
-let stack = new Stack;
+let queue = new Queue;
 
-//adds new element to the stack
+//adds new element to the Queue
 
-stack.addend(0);    //  0
-stack.addend(1);    // 1 -> 0
-stack.addend(2);    // 2 -> 1 -> 0
-stack.addend(3);    // 3 -> 2 -> 1 -> 0
+queue.addend(0);    //  0
+queue.addend(1);    // 1 -> 0
+queue.addend(2);    // 2 -> 1 -> 0
+queue.addend(3);    // 3 -> 2 -> 1 -> 0
 
 //remove the first added elements
 
-stack.remove()   // 3 -> 2 -> 1 -> 0
-stack.remove()   // 3 -> 2 -> 1
-stack.remove()   // 3 -> 2
-stack.remove()   // 3
+queue.remove()   // 3 -> 2 -> 1 -> 0
+queue.remove()   // 3 -> 2 -> 1
+queue.remove()   // 3 -> 2
+queue.remove()   // 3
 
 
 
