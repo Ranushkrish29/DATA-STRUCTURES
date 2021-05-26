@@ -50,18 +50,7 @@ class Binary_search_tree{
             if(currentnode.value===val){ currentnode.duplicate++; return this}
         }
     }
-    find(val){
-        if(!this.root)return undefined
-        let currentnode =this.root, 
-           isfound =false;
-        while(currentnode && !isfound){
-            if (currentnode.value ===val) isfound =true;
-            if(val<currentnode.value)currentnode=currentnode.left; 
-            else if(val>currentnode.value)currentnode=currentnode.right;
-        }
-        return currentnode;
-    }
-   
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////BREADTH FIRST SEARCH STARTS HERE///////////////////////////
     breadth_first_search(){
