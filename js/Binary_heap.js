@@ -98,7 +98,7 @@ class Max_Binary_heap {
         this.values = [];
     }
     //to bubble up the values to the correct place
-    bubble() {
+    bubbleup() {
         //store last-value's index {recently added value} as the child
         let child = this.values.length - 1,
             //find the parent's index of the child
@@ -118,7 +118,7 @@ class Max_Binary_heap {
         for (let i in this.values) { if (val === this.values[i]) return this.values; }
         //adds new-value to the values-arr [in end of the list]  
         this.values.push(val)
-        this.bubble();
+        this.bubbleup();
         return this.values;
     }
     //extractMax method --- removes the current root and re-arranges the tree to satisfies the Max-Binary heap condtitions
@@ -134,16 +134,17 @@ class Max_Binary_heap {
             rightchild = (0 * 1) + 2;
 
         while (this.values[rootindex] < this.values[leftchild] || this.values[rootindex] < this.values[rightchild]) {
-
-            max = this.values[leftchild] > this.values[rightchild] ? leftchild : rightchild;
+            if(leftchild<this.values.length-1 && leftchild<this.values.length-1 ){
+                max = this.values[leftchild] > this.values[rightchild] ? leftchild : rightchild;
+            }else {
+                max=leftchild
+            }
             [this.values[rootindex], this.values[max]] = [this.values[max], this.values[rootindex]];
-        
             rootindex = max;
             leftchild = (max * 2) + 1;
             rightchild = (max * 2) + 2;
 
         }
-        console.log(this.values)
         return currentroot;
     }
 
@@ -166,9 +167,17 @@ console.log(heap.add(15));
 // heap.add(53);//duplicate will not added
 //output --------> [ 67 , 58 , 65 , 45 , 31 , 40 , 53 , 44 , 15  ]
 
-heap.extractMax();
+ heap.extractMax();//   67    ----> tree bubbled-down [ 65, 58, 53, 45, 31, 40, 15, 44 ] 
+ heap.extractMax();//   65    ----> tree bubbled-down [ 58, 45, 53, 44, 31, 40, 15 ] 
+ heap.extractMax();//   58    ----> tree bubbled-down [ 53, 45, 40, 44, 31, 15 ] 
+ heap.extractMax();//   53    ----> tree bubbled-down [ 45, 31, 40, 44, 15 ] 
+ heap.extractMax();//   45    ----> tree bubbled-down [ 40, 31, 15, 44 ]
+ heap.extractMax();//   40    ----> tree bubbled-down [ 31, 44, 15 ] 
+ heap.extractMax();//   31    ----> tree bubbled-down [ 44, 15 ] 
+ heap.extractMax();//   44    ----> tree bubbled-down [ 15 ]
+ heap.extractMax();//   15   ----> tree bubbled-down  [  ]
+
+
 //return the root value and bubbles down the tree
-//output -------->  67   ---> returns the current root value 
-// and then tree is re-arranged as    [ 65 , 58 , 53 , 45 , 31 , 40 , 15 , 44 ]
 
 
