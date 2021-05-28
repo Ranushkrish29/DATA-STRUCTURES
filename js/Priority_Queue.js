@@ -1,5 +1,5 @@
 //---------------------------------------------PRIORITY QUEUE----------------------------------------
-/** "Jump to line 94 for code"
+/** "Jump to line 39 for code"
 
 PRIORITY QUEUE is a kind of heep structure 
 it's stores the elements as a array/list 
