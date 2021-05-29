@@ -2,40 +2,47 @@
 
 
 class Graph {
-    //object to store the vertex and vertex edges/connection  
-    constructor() {
-        this.adjacencylist = {}
+  //object to store the vertex and vertex edges/connection  
+  constructor() {
+    this.adjacencylist = {}
+  }
+  //addes the new vertex to the graph
+  addvertex(vertex) {
+    if (!this.adjacencylist[vertex])
+      this.adjacencylist[vertex] = [];
+  }
+  //connectes the vertex to another vertex --edge connection 
+  addedge(vertex1, vertex2) {
+    let add = true;
+    if (vertex1 !== vertex2) {
+      for (let i in this.adjacencylist[vertex1])
+        if (this.adjacencylist[vertex1][i] === vertex2)
+          add = false
+      if (add) {
+        this.adjacencylist[vertex1].push(vertex2);
+        this.adjacencylist[vertex2].push(vertex1);
+      }
     }
-    //addes the new vertex to the graph
-    addvertex(vertex) {
-        if (!this.adjacencylist[vertex])
-            this.adjacencylist[vertex] = [];
-    }
-    //connectes the vertex to another vertex --edge connection 
-    addedge(vertex1, vertex2) {
-        if (vertex1 !== vertex2)
-            this.adjacencylist[vertex1].push(vertex2);
-            this.adjacencylist[vertex2].push(vertex1);
-    }
-    //disconnects the vertes from another vertex  --edge disconnection
-    removeedge(vertex1,vertex2){
-        for(let i in  this.adjacencylist[vertex1])
-            if(this.adjacencylist[vertex1][i]===vertex2)
-                this.adjacencylist[vertex1].splice(i,1);
+  }
+  //disconnects the vertes from another vertex  --edge disconnection
+  removeedge(vertex1, vertex2) {
+    for (let i in this.adjacencylist[vertex1])
+      if (this.adjacencylist[vertex1][i] === vertex2)
+        this.adjacencylist[vertex1].splice(i, 1);
 
-        for(let i in  this.adjacencylist[vertex2])
-            if(this.adjacencylist[vertex2][i]===vertex1)
-                this.adjacencylist[vertex2].splice(i,1);
-        return this
+    for (let i in this.adjacencylist[vertex2])
+      if (this.adjacencylist[vertex2][i] === vertex1)
+        this.adjacencylist[vertex2].splice(i, 1);
+    return this
+  }
+  //removes the given vertex and its edges/connection to the other vertex
+  removevertex(vertex) {
+    while (this.adjacencylist[vertex].length) {
+      let innervertex = this.adjacencylist[vertex].pop();
+      this.removeedge(vertex, innervertex);
     }
-    //removes the given vertex and its edges/connection to the other vertex
-    removevertex(vertex){
-        while(this.adjacencylist[vertex].length){
-            let innervertex= this.adjacencylist[vertex].pop();
-            this.removeedge(vertex,innervertex);
-        }
-        delete this.adjacencylist[vertex];
-    }
+    delete this.adjacencylist[vertex];
+  }
 
 }
 
