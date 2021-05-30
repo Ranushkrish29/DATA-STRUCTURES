@@ -74,7 +74,12 @@ class Priority_Queue {
     enqueue(val, priority) {
         let newnode = new Node(val, priority);
         //return the list , if entered value is already present in values
-        for (let i in this.values) { if (val === this.values[i].priority) return this.values; }
+        for (let i in this.values) { 
+            if ( val=== this.values[i]['value']) {
+                this.values[i]["priority"]=priority;
+                return this.values; 
+            }
+        }
         //adds new-value to the values-arr [in end of the list]  
         this.values.push(newnode)
         this.bubbleup();
@@ -84,14 +89,15 @@ class Priority_Queue {
     dequeue() {
         let min,
             rootindex = 0,
-            currentroot = this.values[rootindex];
+            currentroot = this.values[rootindex]
+            ,lenght=this.prioritylist.length;
         [this.values[rootindex], this.values[this.values.length - 1]] = [this.values[this.values.length - 1], this.values[rootindex]];
         this.values.pop();
 
         let leftchild = (0 * 1) + 1,
             rightchild = (0 * 1) + 2;
 
-        if (this.values[rootindex] === undefined) return null;
+        if (!lenght) return null;
         else if (this.values[leftchild] === undefined || this.values[rightchild] === undefined) return currentroot;
 
         while (this.values[rootindex].priority > this.values[leftchild].priority || this.values[rootindex].priority > this.values[rightchild].priority) {
