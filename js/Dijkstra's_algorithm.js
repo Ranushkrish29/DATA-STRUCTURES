@@ -1,8 +1,6 @@
 //------------------------------------------DIJKSTRAS ALGORITHM---------------------------------------------------------
 
 
-
-
 class Node{
     constructor(value,priority){
         this.value=value;
