@@ -25,9 +25,8 @@ class Priorityheap{
     enqueue(val,priority){
         let newnode = new Node(val,priority)
         for (let i in this.prioritylist) { 
-            if ( val=== this.prioritylist[i]['value']) {
-                this.prioritylist[i]["priority"]=priority;
-                return this.prioritylist; 
+            if ( val=== this.prioritylist[i]['value'] && priority=== this.prioritylist[i]['priority'] ) {
+                 return this.prioritylist
             }
         }
         this.prioritylist.push(newnode);
@@ -35,22 +34,21 @@ class Priorityheap{
         return this.prioritylist;
     }
    
-    dequeue() {
+    dequeue(rootindex=0) {
         let min,
-            rootindex = 0,
             currentroot = this.prioritylist[rootindex]
             ,lenght=this.prioritylist.length;
 
         [this.prioritylist[rootindex], this.prioritylist[this.prioritylist.length - 1]] = [this.prioritylist[this.prioritylist.length - 1], this.prioritylist[rootindex]];
         this.prioritylist.pop();
-console.log(currentroot);
+
         let leftchild = (0 * 1) + 1,
             rightchild = (0 * 1) + 2;
 
         if (!lenght) return null;
         if (this.prioritylist[leftchild] === undefined || this.prioritylist[rightchild] === undefined) return currentroot;
 
-        while (this.prioritylist[rootindex].priority > this.prioritylist[leftchild].priority || this.prioritylist[rootindex].priority > this.prioritylist[rightchild].priority) {
+        while (rightchild < this.prioritylist.length - 1 && leftchild < this.prioritylist.length - 1 ) {
             min = leftchild < this.prioritylist.length - 1 && leftchild < this.prioritylist.length - 1 ? this.prioritylist[leftchild].priority < this.prioritylist[rightchild].priority ? leftchild : rightchild : leftchild;
             [this.prioritylist[rootindex], this.prioritylist[min]] = [this.prioritylist[min], this.prioritylist[rootindex]];
             rootindex = min;
@@ -93,32 +91,60 @@ class Graph {
     }
     
     Dijkstras_algorithm(start,end){
+
         let distance = {},
-            previousvertex={},
-            visited=[],
-            priorityheap = new Priorityheap;
+            previous={},
+            priorityheap = new Priorityheap,
+            smallestpriority ,
+            candidate,
+            shortpath=[],
+            visited=[];    
+
+
         for(let i in this.adjacencylist){
             if(i===start)distance[i]=0;
             else distance[i]=Infinity;
-            previousvertex[i]=null;
+            previous[i]=null;
             priorityheap.enqueue(i,distance[i])
         }
-        let loop = true
-// console.log(priorityheap)
-//          while(loop){
-//                console.log(priorityheap.dequeue())
-//                let currentvertex=priorityheap.dequeue()
-//                if(currentvertex===null){
-//                    loop=false;
-//                }
-//                if(currentvertex.value === end){
-//                    loop=false
-//                }
-//                loop
-//          }
-//         console.log(distance,previousvertex,priorityheap)
-//     }
+        
+        while(priorityheap.prioritylist.length){
+
+            smallestpriority = priorityheap.dequeue().value;
+
+            if(!visited.includes(smallestpriority)){
+                if(smallestpriority === end){
+                    //we found the given end vertex
+                    while(previous[smallestpriority]){
+                        shortpath.push(smallestpriority)
+                        smallestpriority=previous[smallestpriority]
+                    }
+                    break;
+                }
+
+                if(smallestpriority ){
+                    for(let i in this.adjacencylist[smallestpriority]){
+    
+                        let  neighbor = this.adjacencylist[smallestpriority][i];
+    
+                        candidate = distance[smallestpriority] + neighbor.weight
+                                            
+                        let nextneighbor = neighbor.vertex;
+    
+                        if(candidate < distance[nextneighbor]){
+                            distance[nextneighbor]=candidate;
+                            previous[nextneighbor]=smallestpriority;
+                            priorityheap.enqueue(nextneighbor,candidate);
+                        }
+    
+                    }             
+                } 
+                visited.push(smallestpriority);
+            }
+        }
+        return shortpath.concat(start).reverse();
     }
+    
 
   }
   
@@ -147,6 +173,7 @@ class Graph {
   graph.addedge('c', 'd',2);
   graph.addedge('c', 'f',4);
   graph.addedge('f', 'e',1);
+  graph.addedge('d', 'f',1);
   graph.addedge('e', 'd',3);
   graph.addedge('e', 'b',3);
   
@@ -162,5 +189,6 @@ class Graph {
                        f 
   
    */
- console.log(graph.Dijkstras_algorithm('a','f'));
-//   graph
+ console.log(graph.Dijkstras_algorithm('a','e'));
+
+//   shortest path ------->  [ 'a', 'c', 'd', 'f', 'e' ]
