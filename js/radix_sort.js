@@ -116,7 +116,7 @@ function nth_digitFinder(num,digit){
     (134/10)-->1.34
     1%10 ---> 1*/
   return  Math.floor(Math.abs(num)/Math.pow(10,digit)) %10;
-} //nth_digitFinder(435,2) //---------> return 2 ;
+} //nth_digitFinder(435,2) //---------> return 4 ;
 
 function radix_sorting(arr){
     //using the helperfunction find higher digit number in the arr and store it

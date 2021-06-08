@@ -16,7 +16,7 @@ loop through the  arr and swap the elements to left if element is less then pivi
         [4,2,7,8,3,5,1]   arr[i] -> 8  ---- campare arr[i]<pi  -->nothing happens noe cuz arr[i] is larger then pi 
         [4,2,3,8,7,5,1]   arr[i] -> 3  ---- campare arr[i]<pi   --> now the condition is true and swap the elements ,increament the swapindex
         [4,2,3,1,7,5,8]   arr[i] -> 5  ---- campare arr[i]<pi   -->nothing happens noe cuz arr[i] is larger then pi 
-        [4,2,3,1,7,5,1]   arr[i] -> 1  ---- campare arr[i]<pi   --> now the condition is true and swap the elements ,increament the swapindex
+        [4,2,3,1,7,5,8]   arr[i] -> 1  ---- campare arr[i]<pi   --> now the condition is true and swap the elements ,increament the swapindex
 
    then swap the arr[swapindex] with arr[0 which is the start]
     [1,2,3,4,7,5,8]
