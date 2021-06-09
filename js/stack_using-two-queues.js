@@ -80,7 +80,7 @@ class Stack {
         //enqueue the given value to q1 queue
         this.q1.enqueue(val);
         //loops till the q2 queue have any values in that
-        while(this.q2.size>0)
+        while(this.q2.size)
             //enqueues the ( q2-queue's dequeue value ) to q1 queue   :)
             this.q1.enqueue(this.q2.dequeue());
         //swap the q1 and q2
