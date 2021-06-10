@@ -169,11 +169,15 @@ BST.add(45);
 
 //output of the tree ,after the above adds 
 
-//            15
-//          /    \
-//      6          25
-//    /   \       /   \
-//  1      8    17     30
+//               12
+//           /       \
+//       5               25
+//     /   \           /    \
+//   4     10        17       35
+//  /     /  \         \     /   \
+// 3     6    11       22   30   45
+
+
 
 console.log(BST.removeroot(25));
 console.log(BST.removeroot(20));
