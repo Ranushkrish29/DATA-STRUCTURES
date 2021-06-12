@@ -1,5 +1,5 @@
 ////---------------------------------------------------------BINARY SEARCH TREE - REMOVE METHOD Using RECURSION-----------------------------------------------
-//jump to line 89 
+//jump to line 58 
 
 
 
@@ -61,8 +61,8 @@ class Binary_search_tree {
         function findAndRemove(node) {
             if (value === node.value) {
                 removed = new Node(node.value);
-                
-                 if (node.left && node.right) {
+
+                if (node.left && node.right) {
                     let cur = node.right;
                     while (cur.left) {
                         cur = cur.left;
@@ -80,11 +80,11 @@ class Binary_search_tree {
             } else if (value < node.value) {
                 if (node.left) {
                     node.left = findAndRemove(node.left);
-                } 
+                }
             } else {
                 if (node.right) {
                     node.right = findAndRemove(node.right);
-                } 
+                }
             }
             return node;
         }
@@ -122,22 +122,114 @@ BST.add(45);
 // 3     6    11       22   30   45
 
 
-// BST.add(25);
-// BST.add(20);
-// BST.add(35);
-// BST.add(30);
-// BST.add(45);
-
 console.log(BST.remove(12));//Node { value: 12, left: null, right: null, duplicate: 0 }
+
+//output of the tree ,after the above remove 
+//               20
+//           /       \
+//       5               25
+//     /   \           /    \
+//   4     10        22       35
+//  /     /  \              /   \
+// 3     6    11           30   45
+
 console.log(BST.remove(20));//Node { value: 20, left: null, right: null, duplicate: 0 }
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//     /   \                \
+//   4     10                35
+//  /     /  \              /   \
+// 3     6    11           30   45
+
 console.log(BST.remove(35));//Node { value: 35, left: null, right: null, duplicate: 0 }
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//     /   \                \
+//   4     10                45
+//  /     /  \              /   
+// 3     6    11           30   
+
 console.log(BST.remove(3));//Node { value: 3, left: null, right: null, duplicate: 0 }
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//     /   \                \
+//   4     10                45
+//        /  \              /   
+//       6    11           30   
+
 console.log(BST.remove(30));//Node { value: 30, left: null, right: null, duplicate: 0 }
+
+//output of the tree , after the above remove
+//               22
+//           /       \
+//       5               25
+//     /   \                \
+//   4     10                45
+//        /  \                 
+//       6    11              
+
 console.log(BST.remove(4));//Node { value: 4, left: null, right: null, duplicate: 0 }
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//         \                \
+//         10                45
+//        /  \              /   
+//       6    11           30   
+
 console.log(BST.remove(10));//Node { value: 10, left: null, right: null, duplicate: 0 }
+
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//         \                \
+//         11                45
+//        /                 /   
+//       6                30   
+
 console.log(BST.remove(11));//Node { value: 11, left: null, right: null, duplicate: 0 }
+
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//         \                \
+//          6                45
+//                          /   
+//                        30   
+
 console.log(BST.remove(45));//Node { value: 45, left: null, right: null, duplicate: 0 }
+
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//         \                \
+//          6                30
+
 
 console.log(BST.remove(100))//undefined  ---> no node in the tree have value 100 , so returns undefined
 
-console.log(BST.root)
+
+//output of the tree ,after the above remove
+//               22
+//           /       \
+//       5               25
+//         \                \
+//          6                30
+
