@@ -14,7 +14,7 @@ function findFibonacci(val) {
     if (val <= 2) return 1;
     return findFibonacci(val - 1) + findFibonacci(val - 2);
 }
-console.log(findFibonacci(10));
+console.log(findFibonacci(10));//55
 
 //using recursion with memoziation   -----> Dynamic programming
 let memo = {}
@@ -24,7 +24,7 @@ function findFibonacciDp(val) {
     else memo[val] = findFibonacciDp(val - 1) + findFibonacciDp(val - 2)
     return memo[val];
 }
-console.log(findFibonacciDp(11));
+console.log(findFibonacciDp(11));//89
 
 
 //using Iterative -----> Bottom Up approach
@@ -38,7 +38,7 @@ function findFibonacciIterative(val) {
     }
     return sum1
 }
-console.log(findFibonacciIterative(11))
+console.log(findFibonacciIterative(11))//89
 
 //using Iterative with memoziation   ------>Dyanmic programming
 function findFibonacciIterativeDp(val) {
@@ -48,4 +48,4 @@ function findFibonacciIterativeDp(val) {
     }
     return memo[val]
 }
-console.log(findFibonacciIterativeDp(10));
+console.log(findFibonacciIterativeDp(10));//55
