@@ -58,10 +58,19 @@ var addtwolinkedlist = function (l1, l2) {
 ///converting given list to  linked list 
 
 function addtwolinkedlistfun(list1, list2) {
-    let linkedlist1, linkedlist2;
+    let dummyheadlist1 = new ListNode(0),
+        linkedlist1 = dummyheadlist1,
+        dummyheadlist2 = new ListNode(0),
+        linkedlist2 = dummyheadlist2;
     for (let i of list1) {
-        console.log(i);
+        dummyheadlist1.next = new ListNode(i)
+        dummyheadlist1 = dummyheadlist1.next
     }
+    for (let i of list2) {
+        dummyheadlist2.next = new ListNode(i);
+        dummyheadlist2 = dummyheadlist2.next;
+    }
+    return addtwolinkedlist(linkedlist1.next, linkedlist2.next)
 }
 
 console.log(addtwolinkedlistfun([2, 4, 3], [5, 6, 4]))//[  7 -->  0 --> 8  ]
