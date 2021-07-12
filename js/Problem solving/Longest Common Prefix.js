@@ -29,7 +29,7 @@ function longestCommonPrefix(list) {
     }
     return common;
 }
-console.log(longestCommonPrefix(value), value.sort());
+console.log(longestCommonPrefix(value));
 
 
 //Optimized Implementaion   
