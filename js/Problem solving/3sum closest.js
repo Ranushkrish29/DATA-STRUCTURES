@@ -39,7 +39,7 @@ function threeSumClosest(list, target) {
     }
     return result
 }
-console.log(threeSumClosest(nums, 1))
+console.log(threeSumClosest(nums, 1))//2
 
 
 
@@ -66,4 +66,4 @@ function threeSumClosest2(list, target) {
     }
     return closest === Infinity ? sum : closest;
 }
-console.log(threeSumClosest2([0, 1, 0, 2], 1))
+console.log(threeSumClosest2([0, 1, 0, 2], 1))//1
